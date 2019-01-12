@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+
+#This is the file to make my first  shake
+#a proof of concept with only protein and water
+
+import rospy
+import time
+from std_msgs.msg import String
+
+
+def build_shake():
+	#create the ROS node for the application	
+	rospy.init_node('shakemaker')
+
+	#enable the robot manipulator
+	pub = rospy.Publisher('/robotis/base/set_mode_msg',String, queue_size=1)
+	msg = "set_mode"
+	time.sleep(.2)
+	pub.publish(msg)
+	print "enabled manipulator"
+
+	#move the manipulator to the initial pose
+	pub2 = rospy.Publisher('/robotis/base/ini_pose_msg',String, queue_size=1)
+	msg2 = "ini_pose"
+	time.sleep(.2)
+	pub2.publish(msg2)
+	print "moved to initial pose"
+
+
+if __name__=='__main__':
+	try:
+		build_shake()
+	except rospy.ROSInterruptException:
+		pass
