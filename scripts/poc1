@@ -13,13 +13,6 @@ def build_shake():
 	#create the ROS node for the application	
 	rospy.init_node('shakemaker')
 
-	#enable the robot manipulator
-	pub = rospy.Publisher('/robotis/base/set_mode_msg',String, queue_size=1)
-	msg = "set_mode"
-	time.sleep(.2)
-	pub.publish(msg)
-	print("enabled manipulator")
-
 	#move the manipulator to the initial pose
 	pub2 = rospy.Publisher('/robotis/base/ini_pose_msg',String, queue_size=1)
 	msg2 = "ini_pose"
