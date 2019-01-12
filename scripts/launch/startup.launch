@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find manipulator_h_bringup)/launch/robotis_manipulator.launch"/>
+    <include file="$(find manipulator_h_manager)/launch/manipulator_h_manager.launch"/>
+</launch> 
