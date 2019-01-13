@@ -15,10 +15,11 @@ def build_shake():
 
 	#move the manipulator to the initial pose
 	pub = rospy.Publisher('/robotis/base/joint_pose_msg',JointPose, queue_size=1)
+	time.sleep(1) #time for publisher to register with master
 	msg = JointPose()
 	msg.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
 	msg.value = [0.0, -0.6579891280018623, 0.05009094953223726, 0.0, 0.6085963101704226, 0.0]
-	time.sleep(1)
+
 	pub.publish(msg)
 	print("moved to initial pose")
 
