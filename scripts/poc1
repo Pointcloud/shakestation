@@ -14,11 +14,11 @@ def build_shake():
 	rospy.init_node('shakemaker')
 
 	#move the manipulator to the initial pose
-	pub2 = rospy.Publisher('/robotis/base/joint_pose_msg',JointPose, queue_size=1)
-	msg2 = "<add the inital message here>"
-	time.sleep(.2)
-	pub2.publish(msg2)
-	print("moved to first pose")
+	pub = rospy.Publisher('/robotis/base/joint_pose_msg',JointPose, queue_size=1)
+	msg = "name: [joint1, joint2, joint3, joint4, joint5, joint6] \n value: [0.0, -0.6579891280018623, 0.05009094953223726, 0.0, 0.6085963101704226, 0.0]"
+	time.sleep(1)
+	pub.publish(msg)
+	print("moved to initial pose")
 
 
 if __name__=='__main__':
