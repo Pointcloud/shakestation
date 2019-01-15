@@ -47,11 +47,11 @@ def build_shake():
 	print("moved to initial cup postion")
 
 	#move the manipulator to the initial position
-	msg3 = JointPose()
-	msg3.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
-	msg3.value = [0.0, -0.6579891280018623, 0.05009094953223726, 0.0, 0.6085963101704226, 0.0]
+	msg4 = JointPose()
+	msg4.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
+	msg4.value = [0.0, -0.6579891280018623, 0.05009094953223726, 0.0, 0.6085963101704226, 0.0]
 	time.sleep(4) #time for publisher to register with master
-	pub.publish(msg3)
+	pub.publish(msg4)
 	print("moved to start position")
 	
 if __name__=='__main__':
