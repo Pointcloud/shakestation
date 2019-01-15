@@ -43,6 +43,7 @@ def build_shake():
 	ss= ServoSix()
 	time.sleep(2) 
 	ss.set_servo(1,30)
+	print("grasped cup")
 
 	#move the manipulator to the initial cup position
 	msg3 = JointPose()
