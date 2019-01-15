@@ -20,39 +20,39 @@ def build_shake():
 	msg0.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
 	msg0.value = [0.0, -0.6579891280018623, 0.05009094953223726, 0.0, 0.6085963101704226, 0.0]
 	pub.publish(msg0)
-	print("moved to start position")
+	print("moved to start position 1")
 
 	#move the manipulator to the initial cup position
 	msg1 = JointPose()
 	msg1.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
 	msg1.value = [-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, -0.2617993877991494, -1.53588974175501, -0.00890117918517108]
-	time.sleep(4) #time for publisher to register with master
+	time.sleep(4) 
 	pub.publish(msg1)
-	print("moved to initial cup postion")
+	print("moved to approach cup postion 2")
 
 	#move the manipulator to the grasp cup position
 	msg2 = JointPose()
 	msg2.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
 	msg2.value = [-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, 0.0, -1.53588974175501, -0.00890117918517108]
-	time.sleep(4) #time for publisher to register with master
+	time.sleep(4) 
 	pub.publish(msg2)
-	print("moved to initial cup postion")
+	print("moved to grasp cup postion 3")
 
 	#move the manipulator to the initial cup position
 	msg3 = JointPose()
 	msg3.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
 	msg3.value = [-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, -0.2617993877991494, -1.53588974175501, -0.00890117918517108]
-	time.sleep(4) #time for publisher to register with master
+	time.sleep(4) 
 	pub.publish(msg3)
-	print("moved to initial cup postion")
+	print("moved to approach cup postion 4")
 
 	#move the manipulator to the initial position
 	msg4 = JointPose()
 	msg4.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
 	msg4.value = [0.0, -0.6579891280018623, 0.05009094953223726, 0.0, 0.6085963101704226, 0.0]
-	time.sleep(4) #time for publisher to register with master
+	time.sleep(4) 
 	pub.publish(msg4)
-	print("moved to start position")
+	print("return to start position 5")
 	
 if __name__=='__main__':
 	try:
