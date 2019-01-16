@@ -41,8 +41,11 @@ def build_shake():
 
 	#grasp cup
 	ss= ServoSix()
+	t_end = time.time() + 15
+	while time.time() < t_end:
+		ss.set_servo(1,30)
 	time.sleep(2) 
-	ss.set_servo(1,30)
+	
 	print("grasped cup")
 
 	#move the manipulator to the initial cup position
