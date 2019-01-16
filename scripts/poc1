@@ -14,6 +14,11 @@ def build_shake():
 	#create the ROS node for the application	
 	rospy.init_node('shakemaker')
 
+	#open gripper
+	ss= ServoSix()
+	ss.set_servo(1,10)
+	time.sleep(1) 
+
 	#move the manipulator to the initial position
 	pub = rospy.Publisher('/robotis/base/joint_pose_msg',JointPose, queue_size=1)
 	time.sleep(2) #time for publisher to register with master
@@ -40,7 +45,6 @@ def build_shake():
 	print("moved to grasp cup postion 3")
 
 	#grasp cup
-	ss= ServoSix()
 	t_end = time.time() + 15
 	while time.time() < t_end:
 		ss.set_servo(1,30)
