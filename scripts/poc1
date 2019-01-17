@@ -3,15 +3,12 @@
 #This is the file to make my first shake
 #a proof of concept with only protein and water
 
-
 import rospy
 import time
 from std_msgs.msg import String
 from shakestation.msg import JointPose
 from robotis_controller_msgs import StatusMsg
 from servosix import ServoSix
-
-MANIPULATOR_MOVING = False
 
 def manipulator_status_callback(data):
 	rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.status_msg)
@@ -25,17 +22,10 @@ def move_manipulator(joints):
 	msg.value = [joints[0], joints[1], joints[2], joints[3], joints[4], joints[5]]
 	MANIPULATOR_MOVING = True
 	pub.publish(msg)
-
-	def wait_until(somepredicate, timeout, period=0.25, *args, **kwargs):
-		mustend = time.time() + timeout
-		while time.time() < mustend:
-			if somepredicate(*args, **kwargs): return True
-			time.sleep(period)
-		return False
-
-	while MANIPULATOR_MOVING:
-		time.sleep()
-	return
+	while (time.time() < (time.time() + 10)):
+		if not MANIPULATOR_MOVING:
+			break
+		time.sleep(.1)
 
 def build_shake():
 
@@ -97,8 +87,9 @@ if __name__=='__main__':
 		pub = rospy.Publisher('/robotis/base/joint_pose_msg',JointPose, queue_size=1)
 		time.sleep(2) 
 
-		#setup a subscriber to recieve notifications about manipulator status
+		#setup a subscriber to recieve notifications about manipulator status, allow 2 seconds for subscriber to register
 		rospy.Subscriber("/robotis/status", StatusMsg, manipulator_status_callback)
+		time.sleep(2) 
 
 		#run the main application
 		build_shake()
