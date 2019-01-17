@@ -7,7 +7,7 @@ import rospy
 import time
 from std_msgs.msg import String
 from shakestation.msg import JointPose
-from robotis_controller_msgs import StatusMsg
+from robotis_controller_msgs.msg import StatusMsg
 from servosix import ServoSix
 
 def manipulator_status_callback(data):
