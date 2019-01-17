@@ -8,12 +8,12 @@ import rospy
 import time
 from std_msgs.msg import String
 from shakestation.msg import JointPose
+from robotis_controller_msg import StatusMsg
 from servosix import ServoSix
 
 def manipulator_status_callback(data):
 	rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.status_msg)
-	print(data.status_msg)
-    
+	print(data.status_msg) 
 def wait_for_end_trajectory():
 	return	
 def build_shake():
@@ -82,7 +82,7 @@ if __name__=='__main__':
 		time.sleep(2) 
 
 		#setup a subscriber to recieve notifications about manipulator status
-		rospy.Subscriber("/robotis/status", String, manipulator_status_callback)
+		rospy.Subscriber("/robotis/status", StatusMsg, manipulator_status_callback)
 
 		#run the main application
 		build_shake()
