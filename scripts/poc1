@@ -18,7 +18,7 @@ def manipulator_status_callback(data):
 	rospy.loginfo(rospy.get_caller_id() + " Exiting manipulator_status_callback")
 
 def manipulator_move(joints):
-	rospy.loginfo(rospy.get_caller_id() + " Entering manipulator_move, data.status_msg: %s ", joints)
+	rospy.loginfo(rospy.get_caller_id() + " Entering manipulator_move")
 	msg = JointPose()
 	msg.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
 	msg.value = [joints[0], joints[1], joints[2], joints[3], joints[4], joints[5]]
