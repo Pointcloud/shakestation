@@ -25,12 +25,11 @@ def manipulator_move(joints):
 	MANIPULATOR_MOVING = True
 	pub.publish(msg)
 	rospy.loginfo(rospy.get_caller_id() + " publish just finished")
-	time.sleep(4) 
-	# while (time.time() < (time.time() + 10)):
-	# 	if not MANIPULATOR_MOVING:
-	# 		rospy.loginfo(rospy.get_caller_id() + "in manipulator_move, MANIPULATOR_MOVING was set to False in loop %s ", MANIPULATOR_MOVING)
-	# 		break
-	# 	time.sleep(.1)
+	mustend = time.time() + 10
+	while time.time() < mustend:
+		if not MANIPULATOR_MOVING: break
+		time.sleep(.1)
+
 
 def build_shake():
 
@@ -85,6 +84,8 @@ def build_shake():
 
 if __name__=='__main__':
 	try:
+		global MANIPULATOR_MOVING = False
+		
 		#create the ROS node for the application	
 		rospy.init_node('shakemaker')
 
