@@ -33,10 +33,10 @@ def manipulator_move(joints):
 
 def build_shake():
 
-	#open gripper
-	ss= ServoSix()
-	ss.set_servo(1,10)
-	time.sleep(1) 
+	# #open gripper
+	# ss= ServoSix()
+	# ss.set_servo(1,10)
+	# time.sleep(1) 
 
 	#move the manipulator to the start position
 	manipulator_move([0.0, -0.6579891280018623, 0.05009094953223726, 0.0, 0.6085963101704226, 0.0])
@@ -47,35 +47,22 @@ def build_shake():
 	print("moved to approach cup postion 2")
 
 	#move the manipulator to the grasp cup position
-	msg2 = JointPose()
-	msg2.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
-	msg2.value = [-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, 0.0, -1.53588974175501, -0.00890117918517108]
-	time.sleep(4) 
-	pub.publish(msg2)
+	manipulator_move([-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, 0.0, -1.53588974175501, -0.00890117918517108])
 	print("moved to grasp cup postion 3")
 
 	#grasp cup
-	t_end = time.time() + 15
-	while time.time() < t_end:
-		ss.set_servo(1,30)
-	time.sleep(2) 
-	
-	print("grasped cup")
+	# t_end = time.time() + 15
+	# while time.time() < t_end:
+	# 	ss.set_servo(1,30)
+	# time.sleep(2) 
+	# print("grasped cup")
 
 	#move the manipulator to the initial cup position
-	msg3 = JointPose()
-	msg3.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
-	msg3.value = [-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, -0.2617993877991494, -1.53588974175501, -0.00890117918517108]
-	time.sleep(4) 
-	pub.publish(msg3)
+	manipulator_move([-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, -0.2617993877991494, -1.53588974175501, -0.00890117918517108])
 	print("moved to approach cup postion 4")
 
-	#move the manipulator to the initial position
-	msg4 = JointPose()
-	msg4.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
-	msg4.value = [0.0, -0.6579891280018623, 0.05009094953223726, 0.0, 0.6085963101704226, 0.0]
-	time.sleep(4) 
-	pub.publish(msg4)
+	#move the manipulator to the start position
+	manipulator_move([0.0, -0.6579891280018623, 0.05009094953223726, 0.0, 0.6085963101704226, 0.0])
 	print("return to start position 5")
 
 if __name__=='__main__':
