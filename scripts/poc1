@@ -84,7 +84,7 @@ def build_shake():
 
 if __name__=='__main__':
 	try:
-		global MANIPULATOR_MOVING = False
+		MANIPULATOR_MOVING = False
 		
 		#create the ROS node for the application	
 		rospy.init_node('shakemaker')
