@@ -50,7 +50,7 @@ def build_shake():
 	print("moved to grasp cup postion 3")
 
 	#grasp cup
-	t_end = time.time() + 15
+	t_end = time.time() + 5
 	while time.time() < t_end:
 		ss.set_servo(1,30)
 	time.sleep(2) 
