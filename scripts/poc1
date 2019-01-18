@@ -24,11 +24,13 @@ def manipulator_move(joints):
 	msg.value = [joints[0], joints[1], joints[2], joints[3], joints[4], joints[5]]
 	MANIPULATOR_MOVING = True
 	pub.publish(msg)
-	while (time.time() < (time.time() + 10)):
-		if not MANIPULATOR_MOVING:
-			rospy.loginfo(rospy.get_caller_id() + "in manipulator_move, MANIPULATOR_MOVING was set to False in loop %s ", MANIPULATOR_MOVING)
-			break
-		time.sleep(.1)
+	rospy.loginfo(rospy.get_caller_id() + " publish just finished")
+	time.sleep(4) 
+	# while (time.time() < (time.time() + 10)):
+	# 	if not MANIPULATOR_MOVING:
+	# 		rospy.loginfo(rospy.get_caller_id() + "in manipulator_move, MANIPULATOR_MOVING was set to False in loop %s ", MANIPULATOR_MOVING)
+	# 		break
+	# 	time.sleep(.1)
 
 def build_shake():
 
