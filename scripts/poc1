@@ -11,10 +11,11 @@ from robotis_controller_msgs.msg import StatusMsg
 from servosix import ServoSix
 
 def manipulator_status_callback(data):
-	rospy.loginfo(rospy.get_caller_id() + "entered manipulator_status_callback the data.status_msg is: %s ", data.status_msg)
+	rospy.loginfo(rospy.get_caller_id() + " Entered manipulator_status_callback the data.status_msg is: %s ", data.status_msg)
 	if data.status_msg == "End Trajectory":
 		MANIPULATOR_MOVING = False	
-	rospy.loginfo(rospy.get_caller_id() + "exiting manipulator_status_callback, MANIPULATOR_MOVING is %s ", MANIPULATOR_MOVING)
+		rospy.loginfo(rospy.get_caller_id() + " MANIPULATOR_MOVING set to FALSE")
+	rospy.loginfo(rospy.get_caller_id() + " Exiting manipulator_status_callback")
 
 def manipulator_move(joints):
 	rospy.loginfo(rospy.get_caller_id() + "entering manipulator_move, data.status_msg: %s ", joints)
