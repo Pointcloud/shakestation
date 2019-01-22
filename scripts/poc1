@@ -33,7 +33,7 @@ def manipulator_move(joints):
 def build_shake():
 
 	#open gripper
-	pubGripper.publish(0)
+	pubGripper.publish(10)
 
 	#move the manipulator to the start position
 	manipulator_move([0.0, -0.6579891280018623, 0.05009094953223726, 0.0, 0.6085963101704226, 0.0])
