@@ -14,7 +14,8 @@ from servosix import ServoSix
 def manipulator_status_callback(data):
 	rospy.loginfo(rospy.get_caller_id() + " Entered manipulator_status_callback")
 	if data.status_msg == "End Trajectory":
-		global MANIPULATOR_MOVING = False	
+		global MANIPULATOR_MOVING
+		MANIPULATOR_MOVING = False	
 		rospy.loginfo(rospy.get_caller_id() + " MANIPULATOR_MOVING set to FALSE")
 	rospy.loginfo(rospy.get_caller_id() + " Exiting manipulator_status_callback")
 
@@ -23,7 +24,8 @@ def manipulator_move(joints):
 	msg = JointPose()
 	msg.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
 	msg.value = [joints[0], joints[1], joints[2], joints[3], joints[4], joints[5]]
-	global MANIPULATOR_MOVING = True
+	global MANIPULATOR_MOVING
+	MANIPULATOR_MOVING = True
 	pubManipulator.publish(msg)
 	rospy.loginfo(rospy.get_caller_id() + " publish just finished")
 	mustend = time.time() + 5
