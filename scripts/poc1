@@ -47,7 +47,7 @@ def build_shake():
 	print("moved to grasp cup postion 3")
 
 	#close gripper to grasp cup
-	pubGripper.publish(40)
+	pubGripper.publish(30)
 	print("grasped cup")
 
 	#move the manipulator to the initial cup position
