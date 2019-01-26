@@ -6,8 +6,7 @@ import time
 
 def callback(data):
     #move gripper to requested position
-    while True:
-	    ss.set_servo(1,data.data)
+	ss.set_servo(1,data.data)
 
     
 def listener():
