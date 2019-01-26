@@ -7,7 +7,7 @@ import time
 def callback(data):
     # move gripper to requested position
     ss.set_servo(1,data.data)
-    ss.cleanup()
+    print("gripper callback called")
 
     
 def listener():
