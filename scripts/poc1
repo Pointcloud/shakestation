@@ -12,22 +12,17 @@ from robotis_controller_msgs.msg import StatusMsg
 from servosix import ServoSix
 
 def manipulator_status_callback(data):
-	rospy.loginfo(rospy.get_caller_id() + " Entered manipulator_status_callback")
 	if data.status_msg == "End Trajectory":
 		global MANIPULATOR_MOVING
 		MANIPULATOR_MOVING = False	
-		rospy.loginfo(rospy.get_caller_id() + " MANIPULATOR_MOVING set to FALSE")
-	rospy.loginfo(rospy.get_caller_id() + " Exiting manipulator_status_callback")
 
 def manipulator_move(joints):
-	rospy.loginfo(rospy.get_caller_id() + " Entering manipulator_move")
 	msg = JointPose()
 	msg.name = ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
 	msg.value = [joints[0], joints[1], joints[2], joints[3], joints[4], joints[5]]
 	global MANIPULATOR_MOVING
 	MANIPULATOR_MOVING = True
 	pubManipulator.publish(msg)
-	rospy.loginfo(rospy.get_caller_id() + " publish just finished")
 	mustend = time.time() + 10
 	while time.time() < mustend:
 		if not MANIPULATOR_MOVING: break
@@ -36,7 +31,7 @@ def manipulator_move(joints):
 def build_shake():
 
 	#open gripper
-	pubGripper.publish(0)
+	pubGripper.publish(10)
 	print("opened gripper")
 
 	#move the manipulator to the start position
@@ -72,17 +67,14 @@ if __name__=='__main__':
 		rospy.init_node('shakemaker')
 
 		#setup publisher to send manipulator joint commands, allow 2 seconds for publisher to register
-		print("setup joint pose publisher")
 		pubManipulator = rospy.Publisher('/robotis/base/joint_pose_msg',JointPose, queue_size=1)
 		time.sleep(1) 
 
 		#setup publisher to send gripper commands allow 2 seconds for publisher to register
-		print("setup gripperControl publisher")
 		pubGripper = rospy.Publisher('/gripperControl',Int32, queue_size=1)
 		time.sleep(1) 
 
 		#setup a subscriber to recieve notifications about manipulator status, allow 2 seconds for subscriber to register
-		print("setup manipulator status subscriber")
 		rospy.Subscriber("/robotis/status", StatusMsg, manipulator_status_callback)
 		time.sleep(1) 
 
