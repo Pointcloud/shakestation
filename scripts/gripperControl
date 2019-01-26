@@ -5,8 +5,8 @@ from std_msgs.msg import Int32
 import time
 
 def callback(data):
-    #move gripper to requested position
-	ss.set_servo(1,data.data)
+    # move gripper to requested position
+    ss.set_servo(1,data.data)
 
     
 def listener():

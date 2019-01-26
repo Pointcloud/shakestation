@@ -26,9 +26,11 @@ def manipulator_move(joints):
 	MANIPULATOR_MOVING = True
 	pubManipulator.publish(msg)
 	rospy.loginfo(rospy.get_caller_id() + " publish just finished")
-	mustend = time.time() + 10
+	mustend = time.time() + 5
 	while time.time() < mustend:
-		if not MANIPULATOR_MOVING: break
+		if not MANIPULATOR_MOVING: 
+			print("I'm breaking out of the move loop, the manipulator finished moving")
+			break
 		time.sleep(.1)
 
 def build_shake():
