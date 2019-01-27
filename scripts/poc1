@@ -39,11 +39,11 @@ def build_shake():
 	print("moved to start position 1")
 
 	#move the manipulator to the initial cup position
-	manipulator_move([-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, -0.2617993877991494, -1.53588974175501, -1.5707963267948966])
+	manipulator_move([-0.4363323129985824, 0.8587019919812102, 0.6981317007977318, 0.3490658503988659, -1.43116998663535, -1.6755160819145563])
 	print("moved to approach cup postion 2")
 
 	#move the manipulator to the grasp cup position
-	manipulator_move([-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, 0.0, -1.53588974175501, -1.5707963267948966])
+	manipulator_move([-0.4363323129985824, 0.8587019919812102, 0.4363323129985824, 0.3490658503988659, -1.43116998663535, -1.6755160819145563])
 	print("moved to grasp cup postion 3")
 
 	#close gripper to grasp cup
@@ -51,12 +51,12 @@ def build_shake():
 	print("grasped cup")
 
 	#move the manipulator to the initial cup position
-	manipulator_move([-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, -0.2617993877991494, -1.53588974175501, -1.5707963267948966])
-	print("moved to approach cup postion 4")
+	#manipulator_move([-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, -0.2617993877991494, -1.53588974175501, -1.5707963267948966])
+	#print("moved to approach cup postion 4")
 
 	#move the manipulator to the start position
-	manipulator_move([0.0, -0.6579891280018623, 0.05009094953223726, 0.0, 0.6085963101704226, -1.5707963267948966])
-	print("returned to start position 5")
+	#manipulator_move([0.0, -0.6579891280018623, 0.05009094953223726, 0.0, 0.6085963101704226, -1.5707963267948966])
+	#print("returned to start position 5")
 
 if __name__=='__main__':
 	try:
