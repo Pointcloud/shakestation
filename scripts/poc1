@@ -31,7 +31,7 @@ def manipulator_move(joints):
 def build_shake():
 
 	#open gripper
-	pubGripper.publish(0)
+	pubGripper.publish(40)
 	print("opened gripper")
 
 	#move the manipulator to the start position
@@ -39,15 +39,15 @@ def build_shake():
 	print("moved to start position 1")
 
 	#move the manipulator to the initial cup position
-	manipulator_move([-0.4363323129985824, 0.8587019919812102, 0.6981317007977318, 0.3490658503988659, -1.43116998663535, -1.6755160819145563])
+	manipulator_move([-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, -0.2617993877991494, -1.53588974175501, -1.5707963267948966])
 	print("moved to approach cup postion 2")
 
 	#move the manipulator to the grasp cup position
-	manipulator_move([-0.4363323129985824, 0.8587019919812102, 0.4363323129985824, 0.3490658503988659, -1.43116998663535, -1.6755160819145563])
+	manipulator_move([-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, 0.0, -1.53588974175501, -1.5707963267948966])
 	print("moved to grasp cup postion 3")
 
 	#close gripper to grasp cup
-	pubGripper.publish(40)
+	pubGripper.publish(5)
 	print("grasped cup")
 
 	#move the manipulator to the initial cup position
