@@ -6,9 +6,11 @@ import time
 def callback(data):
     if data.data == 0:
         # turn mixer off
+        #add code to turn relay off
         print("turning mixer off")
     else if data.data == 1:
         # turn mixer on
+        #add code to turn relay on
         print("turning mixer on")
     
 def listener():
