@@ -58,7 +58,7 @@ def build_shake():
 	manipulator_move([-0.7819075048934596, 0.9948376736367678, 0.43493604959698695, 0.0, -1.527163095490381, 0.06981317007977318])
 
 	#open gripper
-	pubGripper.publish(5)
+	pubGripper.publish(40)
 	print("release cup")
 
 	#move the manipulator to the initial cup position
