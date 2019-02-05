@@ -38,7 +38,7 @@ def build_shake():
 ######################### Pick Up Cup ##########################
 ################################################################
 
-	#move the manipulator to the cup approach position 1
+	#move the manipulator to the cup approach position 1.0
 	manipulator_move([-0.3490658503988659, 0.9948376736367678, 0.43493604959698695, 0.0, -1.5446163880149817, 0.06981317007977318])
 
 	#move the manipulator to the cup grasp position 2
