@@ -9,7 +9,7 @@ def callback(data):
         # turn mixer off
         GPIO.output(26,0)
         print("turning mixer off")
-    else if data.data == 1:
+    elif data.data == 1:
         # turn mixer on
         GPIO.output(26,1)
         print("turning mixer on")
