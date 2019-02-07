@@ -45,7 +45,7 @@ def build_shake():
 	manipulator_move([0.0, 0.9948376736367678, 0.43493604959698695, 0.0, -1.5446163880149817, 0.06981317007977318])
 
 	#close gripper to grasp cup
-	pubGripper.publish(5)
+	pubGripper.publish(4)
 
 	#lift cup to base top approach
 	manipulator_move([0.0, 0.9599310885968813, 0.43493604959698695, 0.0, -1.5707963267948966, 0.06981317007977318])
