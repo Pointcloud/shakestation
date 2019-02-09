@@ -9,6 +9,9 @@ from std_msgs.msg import Int32
 
 if __name__=='__main__':
     try:
+        #create the ROS node for the application	
+        rospy.init_node('mixer_command')
+        
         #setup publisher to send mixer commands
         pubMixer = rospy.Publisher('/mixerControl',Int32, queue_size=1)
         time.sleep(1) 

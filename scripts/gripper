@@ -9,9 +9,12 @@ from std_msgs.msg import Int32
 
 if __name__=='__main__':
     try:
+        
+        #create the ROS node for the application	
+		rospy.init_node('gripper_command')
         #setup publisher to send gripper commands
         pubGripper = rospy.Publisher('/gripperControl',Int32, queue_size=1)
-        time.sleep(.5) 
+        time.sleep(1) 
         pubGripper.publish(sys.argv[1])  
 
     except rospy.ROSInterruptException:
