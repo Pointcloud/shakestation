@@ -13,7 +13,7 @@ if __name__=='__main__':
         
         #setup publisher to send mixer commands
         pubMixer = rospy.Publisher('/mixerControl',Int32, queue_size=1)
-        time.sleep(1) 
+        time.sleep(.1) 
         if int(sys.argv[1]) == 1: 
             pubMixer.publish(1) 
         elif int(sys.argv[1]) == 0: 
