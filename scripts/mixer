@@ -4,7 +4,6 @@ import sys
 import time
 import rospy
 
-from std_msgs.msg import String
 from std_msgs.msg import Int32
 
 if __name__=='__main__':
@@ -15,9 +14,9 @@ if __name__=='__main__':
         #setup publisher to send mixer commands
         pubMixer = rospy.Publisher('/mixerControl',Int32, queue_size=1)
         time.sleep(1) 
-        if sys.argv[1] == "ON": 
+        if int(sys.argv[1]) == 1: 
             pubMixer.publish(1) 
-        elif sys.argv[1] == "OFF": 
+        elif int(sys.argv[1]) == 0: 
             pubMixer.publish(0)  
         else:
             print("invalid command")
