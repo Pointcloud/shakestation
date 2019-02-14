@@ -58,7 +58,7 @@ def build_shake():
 
 	#mix
 	pubMixer.publish(1)
-	time.sleep(10)
+	time.sleep(15)
 	pubMixer.publish(0)
 
 	#move cup to mixer mix position 2
@@ -66,7 +66,7 @@ def build_shake():
 
 	#mix
 	pubMixer.publish(1)
-	time.sleep(10)
+	time.sleep(15)
 	pubMixer.publish(0)
 
 	#move cup back to mixer approach
