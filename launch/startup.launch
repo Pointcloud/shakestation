@@ -4,5 +4,6 @@
     <node name="setmode" pkg="shakestation" type="setmode" />
     <node name="gripperControl" pkg="shakestation" type="gripperControl" />
     <node name="mixerControl" pkg="shakestation" type="mixerControl" />
+    <node name="waterValveControl" pkg="shakestation" type="waterValveControl" />
     <node name="manipulator_h_gui" pkg="manipulator_h_gui" type="manipulator_h_gui" />
 </launch> 
