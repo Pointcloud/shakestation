@@ -47,6 +47,9 @@ def build_shake():
 	#close gripper to grasp powder container
 	pubGripper.publish(4)
 
+	#move the manipulator to the powder pour position 1
+	manipulator_move([-0.08726646259971647, 0.5235987755982988, 0.5585053606381855, 0.0, -1.2217304763960306, 0.06981317007977318])
+
 	# #move the manipulator to the cup grasp position 
 	# manipulator_move([0.0, 0.9948376736367678, 0.43493604959698695, 0.0, -1.5446163880149817, 0.06981317007977318])
 
