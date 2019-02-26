@@ -38,51 +38,57 @@ def build_shake():
 ######################### Make Shake ##########################
 ################################################################
 
-	#move the manipulator to the cup approach position 
+	#move the manipulator to the powder approach position 
 	manipulator_move([-0.3490658503988659, 0.9948376736367678, 0.43493604959698695, 0.0, -1.5446163880149817, 0.06981317007977318])
 
-	#move the manipulator to the cup grasp position 
-	manipulator_move([0.0, 0.9948376736367678, 0.43493604959698695, 0.0, -1.5446163880149817, 0.06981317007977318])
+	#move the manipulator to the powder grip position 
+	manipulator_move([-0.4363323129985824, 0.9948376736367678, 0.43493604959698695, 0.0, -1.5446163880149817, 0.06981317007977318])
 
-	#close gripper to grasp cup
+	#close gripper to grasp powder container
 	pubGripper.publish(4)
 
-	#lift cup to base top approach
-	manipulator_move([0.0, 0.9599310885968813, 0.43493604959698695, 0.0, -1.5707963267948966, 0.06981317007977318])
+	# #move the manipulator to the cup grasp position 
+	# manipulator_move([0.0, 0.9948376736367678, 0.43493604959698695, 0.0, -1.5446163880149817, 0.06981317007977318])
 
-	#move cup to mixer approach 
-	manipulator_move([0.8517206749732327, 1.117010721276371, 0.15707963267948966, 0.0, -1.4835298641951802, 0.06981317007977318])
+	# #close gripper to grasp cup
+	# pubGripper.publish(4)
 
-	#move cup to mixer mix position 1
-	manipulator_move([0.8517206749732327, 0.635299847725936, 0.3490658503988659, 0.0, -1.1344640137963142, 0.06981317007977318])
+	# #lift cup to base top approach
+	# manipulator_move([0.0, 0.9599310885968813, 0.43493604959698695, 0.0, -1.5707963267948966, 0.06981317007977318])
 
-	#mix
-	pubMixer.publish(1)
-	time.sleep(15)
-	pubMixer.publish(0)
+	# #move cup to mixer approach 
+	# manipulator_move([0.8517206749732327, 1.117010721276371, 0.15707963267948966, 0.0, -1.4835298641951802, 0.06981317007977318])
 
-	#move cup to mixer mix position 2
-	manipulator_move([0.8517206749732327, 0.6794050547601, 0.3490658503988659, 0.0, -1.1344640137963142, 0.06981317007977318])
+	# #move cup to mixer mix position 1
+	# manipulator_move([0.8517206749732327, 0.635299847725936, 0.3490658503988659, 0.0, -1.1344640137963142, 0.06981317007977318])
 
-	#mix
-	pubMixer.publish(1)
-	time.sleep(15)
-	pubMixer.publish(0)
+	# #mix
+	# pubMixer.publish(1)
+	# time.sleep(15)
+	# pubMixer.publish(0)
 
-	#move cup back to mixer approach
-	manipulator_move([0.8517206749732327, 1.117010721276371, 0.15707963267948966, 0.0, -1.4835298641951802, 0.06981317007977318])
+	# #move cup to mixer mix position 2
+	# manipulator_move([0.8517206749732327, 0.6794050547601, 0.3490658503988659, 0.0, -1.1344640137963142, 0.06981317007977318])
 
-	#move back to base top approach
-	manipulator_move([0.0, 0.9599310885968813, 0.43493604959698695, 0.0, -1.5707963267948966, 0.06981317007977318])
+	# #mix
+	# pubMixer.publish(1)
+	# time.sleep(15)
+	# pubMixer.publish(0)
 
-	#move the manipulator to the cup grasp position 
-	manipulator_move([0.0, 0.9948376736367678, 0.43493604959698695, 0.0, -1.5446163880149817, 0.06981317007977318])
+	# #move cup back to mixer approach
+	# manipulator_move([0.8517206749732327, 1.117010721276371, 0.15707963267948966, 0.0, -1.4835298641951802, 0.06981317007977318])
 
-	#open gripper to release cup
-	pubGripper.publish(40)
+	# #move back to base top approach
+	# manipulator_move([0.0, 0.9599310885968813, 0.43493604959698695, 0.0, -1.5707963267948966, 0.06981317007977318])
 
-	#move the manipulator to the cup approach position 
-	manipulator_move([-0.3490658503988659, 0.9948376736367678, 0.43493604959698695, 0.0, -1.5446163880149817, 0.06981317007977318])
+	# #move the manipulator to the cup grasp position 
+	# manipulator_move([0.0, 0.9948376736367678, 0.43493604959698695, 0.0, -1.5446163880149817, 0.06981317007977318])
+
+	# #open gripper to release cup
+	# pubGripper.publish(40)
+
+	# #move the manipulator to the cup approach position 
+	# manipulator_move([-0.3490658503988659, 0.9948376736367678, 0.43493604959698695, 0.0, -1.5446163880149817, 0.06981317007977318])
 
 if __name__=='__main__':
 	try:
