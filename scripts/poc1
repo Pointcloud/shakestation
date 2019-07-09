@@ -2,6 +2,7 @@
 
 #This is the file to make my first shake
 #proof of concept with only protein and water
+#adding new mac
 
 import rospy
 import time
